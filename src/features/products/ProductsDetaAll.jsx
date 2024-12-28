@@ -4,7 +4,7 @@ import { useGetProducts } from "./useGetProducts";
 import { Add, Heart } from "iconsax-react";
 import { useGetFilter } from "./useGetFilter";
 
-function ProductsDetaAll() {
+function ProductsDetaAll({ search }) {
   const { products } = useGetProducts();
   // const { colors, categories, size } = useGetFilter();
   // const filterProducts = products?.filter((product) => {
@@ -15,16 +15,25 @@ function ProductsDetaAll() {
   // });
   // md:ml-56
   const [searchParams] = useSearchParams();
+  
   const filter = searchParams.get("filter");
+
   const filterProduct =
     filter !== "All"
       ? products?.filter((product) => {
           return product?.title?.toLowerCase()?.includes(filter?.toLowerCase());
         })
       : products;
+
+  const searchProduct =
+    search.length > 0
+      ? filterProduct.filter((product) =>
+          product?.title?.toLowerCase().includes(search?.toLowerCase())
+        )
+      : filterProduct;
   return (
     <ul className="p-2 grid w-full h-full items-start bg-[#FBFBFB] grid-cols-2  md:grid-cols-4  gap-4   overflow-auto">
-      {filterProduct?.map((product) => (
+      {searchProduct?.map((product) => (
         <Product product={product} key={product.id} />
       ))}
     </ul>

@@ -5,21 +5,19 @@ import { useState } from "react";
 import HeaderMenuMobile from "../ui/HeaderMenuMobile";
 import FilterButton from "../ui/FilterButton";
 import FilterButtons from "../ui/FilterButtons";
+import Search from "../ui/Search";
 
 function Products() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [search, setSearch] = useState("");
 
   return (
     <div className="flex flex-col  items-center gap-4  h-full bg-[#FBFBFB]">
       <div className="w-full gap-4 flex flex-col-reverse lg:flex-row items-center justify-between px-2 bg-[#FBFBFB]">
         <FilterButtons />
-        <input
-          type="text"
-          className="w-full lg:w-1/3 bg-[#f4f4f4] text-gray-600 rounded-2xl px-6 py-3 "
-          placeholder="Search Coffee ..."
-        />
+        <Search search={search} setSearch={setSearch} />
       </div>
-      <ProductsDetaAll />
+      <ProductsDetaAll search={search} />
     </div>
   );
 }
