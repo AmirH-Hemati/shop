@@ -11,7 +11,14 @@ function Products() {
 
   return (
     <div className="flex flex-col  items-center gap-4  h-full bg-[#FBFBFB]">
-      <FilterButtons />
+      <div className="w-full gap-4 flex flex-col-reverse lg:flex-row items-center justify-between px-2">
+        <FilterButtons />
+        <input
+          type="text"
+          className="w-full lg:w-1/3 bg-[#f4f4f4] text-gray-600 rounded-2xl px-6 py-3 "
+          placeholder="Search Coffee ..."
+        />
+      </div>
       <ProductsDetaAll />
     </div>
   );

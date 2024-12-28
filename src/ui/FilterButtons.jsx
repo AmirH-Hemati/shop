@@ -11,7 +11,7 @@ function FilterButtons() {
   }, [filter, searchParams, setSearchParams]);
 
   return (
-    <div className="p-2 flex w-full overflow-auto text-sm md:text-base justify-between bg-[#FBFBFB]">
+    <div className="p-2 flex lg:flex-wrap lg:justify-start gap-1 lg:w-1/2 w-full   overflow-auto text-sm  justify-between bg-[#FBFBFB]">
       <FilterButton text="All" setFilter={setFilter} filter={filter} />
       <FilterButton text="Cappuccino" setFilter={setFilter} filter={filter} />
       <FilterButton text="Mocha" setFilter={setFilter} filter={filter} />
