@@ -1,12 +1,22 @@
-import { Add, AddCircle, FavoriteChart, Heart } from "iconsax-react";
 import { useFavorite } from "../context/FavoritesContext";
-import HeaderMenuMobile from "../ui/HeaderMenuMobile";
+
 import AddToFavorite from "../ui/AddToFavorite";
 import { Link } from "react-router-dom";
 
 function Favorites() {
   const { favorite } = useFavorite();
   console.log(favorite.id);
+  if (favorite.length < 1)
+    return (
+      <div className="h-full flex  justify-center items-center font-montserrat text-base md:text-xl font-semibold text-black">
+        <p className="flex flex-col justify-center">
+          <span>There are no favorite products.</span>
+          <span className="text-gray-500 text-sm md:text-base">
+            Please add some products.{" "}
+          </span>
+        </p>
+      </div>
+    );
   return (
     <div className="h-full md:px-6 px-1 py-2 font-montserrat bg-[#FBFBFB]">
       <h1 className="text-2xl font-semibold">Favorite</h1>
