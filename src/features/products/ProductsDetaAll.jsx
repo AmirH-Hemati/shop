@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useGetProducts } from "./useGetProducts";
 
 import { Add, Heart } from "iconsax-react";
@@ -14,9 +14,17 @@ function ProductsDetaAll() {
   //   return filterColor && filterCategories;
   // });
   // md:ml-56
+  const [searchParams] = useSearchParams();
+  const filter = searchParams.get("filter");
+  const filterProduct =
+    filter !== "All"
+      ? products?.filter((product) => {
+          return product.title.toLowerCase().includes(filter.toLowerCase());
+        })
+      : products;
   return (
-    <ul className="grid w-full grid-cols-2  md:grid-cols-4  gap-4 md:ml-56  overflow-auto">
-      {products?.map((product) => (
+    <ul className="p-2 grid w-full h-full items-start bg-[#FBFBFB] grid-cols-2  md:grid-cols-4  gap-4   overflow-auto">
+      {filterProduct?.map((product) => (
         <Product product={product} key={product.id} />
       ))}
     </ul>
@@ -25,7 +33,7 @@ function ProductsDetaAll() {
 
 function Product({ product }) {
   return (
-    <li className=" p-1 rounded-2xl shadow-2xl bg-white ">
+    <li className=" p-1 rounded-2xl shadow-xl bg-white ">
       <div>
         <img
           src={product.image}

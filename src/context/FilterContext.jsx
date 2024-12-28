@@ -6,7 +6,7 @@ const filterContext = createContext();
 function FilterContextProvider({ children }) {
   const [filters, setFilters] = useState({
     colors: [],
-    categories: [],
+    type: [],
     size: [],
   });
   const [searchParams, setSearchParams] = useSearchParams();
@@ -14,8 +14,8 @@ function FilterContextProvider({ children }) {
   useEffect(() => {
     const colors = searchParams.get("colors")?.split(",") || [];
     const categories = searchParams.get("categories")?.split(",") || [];
-    const size = searchParams.get("size")?.split(",") || [];
-    setFilters({ colors: colors, size: size, categories: categories });
+    const type = searchParams.get("type")?.split(",") || [];
+    setFilters({ colors, type, categories });
   }, [searchParams]);
 
   function updateParamsInUrl(updateFilter) {
