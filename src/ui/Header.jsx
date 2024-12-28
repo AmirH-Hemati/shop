@@ -1,4 +1,4 @@
-import { Heart, Home2, Profile, ShoppingCart } from "iconsax-react";
+import { Heart, Home2, LoginCurve, ShoppingCart } from "iconsax-react";
 import { NavLink } from "react-router-dom";
 
 function Header() {
@@ -22,11 +22,14 @@ function Test() {
         <p className="hidden md:block">Favarite</p>
         <Heart size="36" color="#00582f" className="md:hidden" />
       </NavLink>
-      <NavLink className="flex flex-row-reverse " to={`/login`}>
-        <p className="hidden md:block">Login</p>
-        <Heart size="36" color="#00582f" className="md:hidden" />
+      <NavLink
+        className="flex flex-row-reverse order-last md:order-none "
+        to={`/login`}
+      >
+        <p className="hidden md:block ">Login</p>
+        <LoginCurve size="36" color="#00582f" className="md:hidden" />
       </NavLink>
-      <NavLink className="lg:mr-auto" to={`/login`}>
+      <NavLink className="lg:mr-auto " to={`/login`}>
         <ShoppingCart size="36" color="#00582f" className="" />
       </NavLink>
     </>
