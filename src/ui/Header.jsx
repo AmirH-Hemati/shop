@@ -1,5 +1,6 @@
 import { Heart, Home2, LoginCurve, ShoppingCart } from "iconsax-react";
 import { NavLink } from "react-router-dom";
+import { useAddToCart } from "../context/shopContext";
 
 function Header() {
   return (
@@ -12,6 +13,7 @@ function Header() {
 export default Header;
 
 function Test() {
+  const { getAllQty } = useAddToCart();
   return (
     <>
       <NavLink to={`/`} className="flex flex-row-reverse">
@@ -29,8 +31,13 @@ function Test() {
         <p className="hidden md:block ">Login</p>
         <LoginCurve size="36" color="#00582f" className="md:hidden" />
       </NavLink>
-      <NavLink className="lg:mr-auto " to={`/login`}>
+      <NavLink className="lg:mr-auto relative " to={`/login`}>
         <ShoppingCart size="36" color="#00582f" className="" />
+        {getAllQty() > 0 && (
+          <p className="text-sm text-white absolute top-3 -right-2 bg-[#00512c] w-5 h-5 flex justify-center items-center rounded-md">
+            {getAllQty()}
+          </p>
+        )}
       </NavLink>
     </>
   );

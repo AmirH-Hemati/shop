@@ -1,7 +1,6 @@
 import { Coffee } from "iconsax-react";
 
 function FilterButton({ text, setFilter, filter }) {
-  console.log(filter, text);
   return (
     <button
       onClick={() => setFilter(text)}

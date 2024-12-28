@@ -29,9 +29,18 @@ function ShopContextProvider({ children }) {
   function getProductQty(id) {
     return addCart.find((product) => product.id === id)?.qty || 0;
   }
+  function getAllQty() {
+    return addCart?.reduce((acc, pro) => acc + pro?.qty, 0);
+  }
+  console.log(getAllQty());
   return (
     <shopContext.Provider
-      value={{ handelIncreaseProduct, handelDecreaseProduct, getProductQty }}
+      value={{
+        handelIncreaseProduct,
+        handelDecreaseProduct,
+        getProductQty,
+        getAllQty,
+      }}
     >
       {children}
     </shopContext.Provider>

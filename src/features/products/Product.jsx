@@ -1,4 +1,4 @@
-import { Back, Heart, Star1, Trash } from "iconsax-react";
+import { Add, Back, Heart, Minus, Star1, Trash } from "iconsax-react";
 import { useAddToCart } from "../../context/shopContext";
 import { useGetProduct } from "./useGetProduct";
 import { useState } from "react";
@@ -10,8 +10,10 @@ function Product() {
   const { product } = useGetProduct();
   const [cupSize, setCupSize] = useState("small");
   const [suger, setSuger] = useState("not Sugger");
-
+  const { handelIncreaseProduct, getProductQty, handelDecreaseProduct } =
+    useAddToCart();
   const navigate = useNavigate();
+
   return (
     <div className="overflow-hidden w-full  flex flex-col md:flex-row h-full md:gap-2 md:px-2 bg-[#FBFBFB]  items-center font-montserrat">
       <div className=" relative w-full md:w-1/2   z-0 shadow-md md:px-6 md:py-2 bg-none md:bg-white md:rounded-xl">
@@ -53,9 +55,34 @@ function Product() {
             <span className="text-red-800">...Read More</span>
           </p>
         </div>
-        <button className="bg-[#00512C] w-full md:w-1/2 md:self-end border-none text-white p-2 rounded-md align-middle text-sm font-semibold">
-          Add to Cart | $50.000
-        </button>
+        {getProductQty(product?.id) > 0 ? (
+          <div className="flex self-center md:self-end items-center gap-4">
+            <button
+              onClick={() => handelDecreaseProduct(product?.id)}
+              className="w-16 flex justify-center items-center bg-[#00512C] border-none text-white p-3 rounded-md  text-sm font-semibold"
+            >
+              {getProductQty(product?.id) > 1 ? (
+                <Minus size="22" color="#fff" />
+              ) : (
+                <Trash size="22" color="#fff" />
+              )}
+            </button>
+            <p className="font-semibold text-lg">{getProductQty(product?.id)}</p>
+            <button
+              onClick={() => handelIncreaseProduct(product?.id)}
+              className="w-16 flex justify-center bg-[#00512C] border-none text-white p-3 rounded-md  text-sm font-semibold"
+            >
+              <Add size="22" color="#fff" />
+            </button>
+          </div>
+        ) : (
+          <button
+            onClick={() => handelIncreaseProduct(product?.id)}
+            className="bg-[#00512C] w-full md:w-1/2 md:self-end border-none text-white p-2 rounded-md align-middle text-sm font-semibold"
+          >
+            Add to Cart | $50.000
+          </button>
+        )}
       </div>
     </div>
   );
