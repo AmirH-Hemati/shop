@@ -5,11 +5,11 @@ function FilterButton({ text, setFilter, filter }) {
   return (
     <button
       onClick={() => setFilter(text)}
-      className={`bg-blue-400 font-montserrat font-semibold  text-[#00582f] flex items-center justify-center space-x-2  shadow-lg rounded-xl w-32 p-2 ${
-        filter == text && "bg-red-500 text-white"
-      } `}
+      className={`${
+        filter == text && "bg-[#00582f] text-[#fff]"
+      } bg-blue-500  font-montserrat font-semibold     text-[#00582f] flex items-center justify-center space-x-2  shadow-lg rounded-xl w-32 p-2  `}
     >
-      <span>{text} amir hossein test </span>
+      <span>{text}</span>
       <Coffee size="26" color={filter === text ? "#fff" : "#00582f"} />
     </button>
   );
