@@ -4,6 +4,7 @@ import { useGetProduct } from "./useGetProduct";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFavorite } from "../../context/FavoritesContext";
+import AddToFavorite from "../../ui/AddToFavorite";
 
 function Product() {
   const { product } = useGetProduct();
@@ -13,24 +14,24 @@ function Product() {
   const navigate = useNavigate();
   return (
     <div className="overflow-hidden w-full  flex flex-col md:flex-row h-full md:gap-2 md:px-2 bg-[#FBFBFB]  items-center font-montserrat">
-      <div className=" relative w-full md:w-1/2 h-1/2  z-0 shadow-2xl md:px-6 md:py-2 bg-none md:bg-white md:rounded-xl">
+      <div className=" relative w-full md:w-1/2   z-0 shadow-md md:px-6 md:py-2 bg-none md:bg-white md:rounded-xl">
         <TopMobile navigate={navigate} product={product} />
 
         <img
           src={product?.image}
           alt="Product"
-          className="object-cover w-full h-full md:h-full   "
+          className="object-cover w-full  aspect-square md:px-6 "
         />
-        
+
         <TitleInMobile product={product} />
       </div>
 
-      <div className="kir bg-white  h-full w-full md:text-md text-base md:w-1/2 md:h-2/3 md:rounded-xl rounded-t-xl   -mt-8 md:-mt-0 flex flex-col justify-between  z-10 px-6 py-4   shadow-2xl">
+      <div className=" bg-white  h-full md:h-[85%] w-full md:text-md text-base md:w-1/2  md:rounded-xl rounded-t-xl   -mt-8 md:-mt-0 flex flex-col justify-between  z-10 px-6 py-4   shadow-md">
         <div className="w-full hidden md:flex justify-between items-center ">
           <p className="text-3xl font-semibold">{product?.title}</p>
-          <AddToFavorite product={product} color={`black`} />
+          <AddToFavorite product={product} color={`#00512c`} />
         </div>
-        
+
         <DiffrentType
           text1="small"
           text2="medium"
@@ -47,12 +48,12 @@ function Product() {
 
         <div>
           <p className="font-semibold">About : </p>
-          <p className="text-base">
+          <p className="text-sm md:text-base">
             Lorem ipsum dolor sit amet consectetur adipisicing elit.
             <span className="text-red-800">...Read More</span>
           </p>
         </div>
-        <button className="bg-[#00512C] w-full md:w-1/2 md:self-end border-none text-white p-2 rounded-md align-middle text-sm font-medium">
+        <button className="bg-[#00512C] w-full md:w-1/2 md:self-end border-none text-white p-2 rounded-md align-middle text-sm font-semibold">
           Add to Cart | $50.000
         </button>
       </div>
@@ -78,20 +79,7 @@ function Score() {
     </div>
   );
 }
-function AddToFavorite({ product, color }) {
-  const { addFavorite, favorite } = useFavorite();
-  return (
-    <Heart
-      size="32"
-      color={color}
-      variant={
-        favorite.find((favorite) => favorite?.id == product?.id) ? "Bold" : null
-      }
-      style={{ cursor: "pointer" }}
-      onClick={() => addFavorite(product)}
-    />
-  );
-}
+
 function TopMobile({ navigate, product }) {
   return (
     <div className="md:hidden flex space-x-2 w-full justify-between absolute top-2 px-6 py-2 ">
@@ -103,11 +91,11 @@ function TopMobile({ navigate, product }) {
 function DiffrentType({ text1, text2, text3, title }) {
   const [type, setType] = useState(text1);
   return (
-    <div className="bg-white space-y-2 text-sm md:text-md">
+    <div className="bg-white space-y-2 text-sm md:text-md ">
       <p className="font-semibold ">{title} </p>
-      <div className="flex justify-between ">
+      <div className="flex justify-between text-xs md:text-sm font-semibold ">
         <p
-          className={`px-2 py-1 flex justify-center  ${
+          className={`px-2 py-1 w-20  md:w-24 flex justify-center  ${
             type == text1 && "bg-[#00512C] text-center text-white rounded-3xl"
           }`}
           onClick={() => setType(text1)}
@@ -115,7 +103,7 @@ function DiffrentType({ text1, text2, text3, title }) {
           {text1}
         </p>
         <p
-          className={`px-2 py-1 flex justify-center ${
+          className={`px-2 py-1 w-20  md:w-24 flex justify-center ${
             type == text2 && "bg-[#00512C] text-center text-white rounded-3xl"
           }`}
           onClick={() => setType(text2)}
@@ -123,7 +111,7 @@ function DiffrentType({ text1, text2, text3, title }) {
           {text2}
         </p>
         <p
-          className={`px-2 py-1 flex items-center justify-center ${
+          className={`px-2 py-1 w-20  md:w-24 flex items-center justify-center ${
             type == text3 && "bg-[#00512C] text-center text-white rounded-3xl"
           }`}
           onClick={() => setType(text3)}

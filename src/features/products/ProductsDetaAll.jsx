@@ -3,6 +3,7 @@ import { useGetProducts } from "./useGetProducts";
 
 import { Add, Heart } from "iconsax-react";
 import { useGetFilter } from "./useGetFilter";
+import AddToFavorite from "../../ui/AddToFavorite";
 
 function ProductsDetaAll({ search }) {
   const { products } = useGetProducts();
@@ -15,7 +16,7 @@ function ProductsDetaAll({ search }) {
   // });
   // md:ml-56
   const [searchParams] = useSearchParams();
-  
+
   const filter = searchParams.get("filter");
 
   const filterProduct =
@@ -55,7 +56,8 @@ function Product({ product }) {
           <h3 className="text-xs font-semibold font-montserrat">
             {product.title}
           </h3>
-          <Heart size="28" color="#FF8A65" />
+
+          <AddToFavorite product={product} color="#00512c" />
         </div>
         <p className="text-[12px] font-montserrat ">with suger</p>
         <div className="flex justify-between items-center">
