@@ -31,7 +31,7 @@ function Test() {
         <p className="hidden md:block ">Login</p>
         <LoginCurve size="36" color="#00582f" className="md:hidden" />
       </NavLink>
-      <NavLink className="lg:mr-auto relative " to={`/login`}>
+      <NavLink className="lg:mr-auto relative " to={`/shopCart`}>
         <ShoppingCart size="36" color="#00582f" className="" />
         {getAllQty() > 0 && (
           <p className="text-sm text-white absolute top-3 -right-2 bg-[#00512c] w-5 h-5 flex justify-center items-center rounded-md">

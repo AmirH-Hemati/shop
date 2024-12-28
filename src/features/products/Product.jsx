@@ -67,7 +67,9 @@ function Product() {
                 <Trash size="22" color="#fff" />
               )}
             </button>
-            <p className="font-semibold text-lg">{getProductQty(product?.id)}</p>
+            <p className="font-semibold text-lg">
+              {getProductQty(product?.id)}
+            </p>
             <button
               onClick={() => handelIncreaseProduct(product?.id)}
               className="w-16 flex justify-center bg-[#00512C] border-none text-white p-3 rounded-md  text-sm font-semibold"
