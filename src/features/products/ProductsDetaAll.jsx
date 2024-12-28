@@ -19,7 +19,7 @@ function ProductsDetaAll() {
   const filterProduct =
     filter !== "All"
       ? products?.filter((product) => {
-          return product.title.toLowerCase().includes(filter.toLowerCase());
+          return product?.title?.toLowerCase()?.includes(filter?.toLowerCase());
         })
       : products;
   return (

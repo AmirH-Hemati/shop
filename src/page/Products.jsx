@@ -11,7 +11,7 @@ function Products() {
 
   return (
     <div className="flex flex-col  items-center gap-4  h-full bg-[#FBFBFB]">
-      <div className="w-full gap-4 flex flex-col-reverse lg:flex-row items-center justify-between px-2">
+      <div className="w-full gap-4 flex flex-col-reverse lg:flex-row items-center justify-between px-2 bg-[#FBFBFB]">
         <FilterButtons />
         <input
           type="text"

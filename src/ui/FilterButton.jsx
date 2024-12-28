@@ -9,7 +9,7 @@ function FilterButton({ text, setFilter, filter }) {
         filter == text
           ? "bg-[#00582f] text-[#fff]"
           : "bg-[#FBFBFB] text-[#00582f] "
-      }   font-montserrat font-semibold  flex items-center justify-center space-x-2  shadow-lg rounded-xl  p-1  `}
+      }   font-montserrat font-semibold  flex items-center justify-center space-x-2  shadow-md rounded-xl  p-1  `}
     >
       <span>{text}</span>
       <Coffee size="20" color={filter === text ? "#fff" : "#00582f"} />

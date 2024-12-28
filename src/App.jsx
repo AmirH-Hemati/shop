@@ -9,6 +9,7 @@ import { FilterContextProvider } from "./context/FilterContext";
 import { ShopContextProvider } from "./context/shopContext";
 import Favorites from "./page/Favorites";
 import { FavoriteProvider } from "./context/FavoritesContext";
+import Login from "./page/Login";
 
 const qeuryClient = new QueryClient();
 function App() {
@@ -23,6 +24,7 @@ function App() {
                 <Route path="/products" element={<Products />} />
                 <Route path="/product/:id" element={<Product />} />
                 <Route path="/favorites" element={<Favorites />} />
+                <Route path="/login" element={<Login />} />
                 <Route path="*" element={<PageNotFound />} />
               </Route>
             </Routes>

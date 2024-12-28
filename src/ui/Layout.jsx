@@ -3,10 +3,10 @@ import Header from "./Header";
 
 function Layout() {
   return (
-    <div className="h-screen grid grid-rows-[auto_1fr]">
+    <div className="h-screen flex flex-col gap-5">
       <Header />
 
-      <main className="flex-grow  overflow-auto">
+      <main className="flex-1  overflow-auto">
         <Outlet />
       </main>
     </div>

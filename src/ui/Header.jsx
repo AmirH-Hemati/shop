@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 function Header() {
   return (
-    <div className="h-6 bg-red-200 hidden lg:block">
+    <div className="font-montserrat font-semibold h-16 md:relative w-full fixed bottom-0 left-0 bg-white rounded-t-xl shadow-lg px-4 flex  gap-6 lg:flex-row-reverse justify-evenly  items-center">
       <Test />
     </div>
   );
@@ -13,19 +13,22 @@ export default Header;
 
 function Test() {
   return (
-    <div  className="flex w-1/3 justify-between">
-      <NavLink to={`/products`}>
-        <Home2 size="36" color="#80A896" />
+    <>
+      <NavLink to={`/`} className="flex flex-row-reverse">
+        <p className="hidden md:block">Home</p>
+        <Home2 size="36" color="#00582f" className="md:hidden" />
       </NavLink>
-      <NavLink>
-        <Heart size="36" color="#80A896" />
+      <NavLink className="flex flex-row-reverse" to={`/favorites`}>
+        <p className="hidden md:block">Favarite</p>
+        <Heart size="36" color="#00582f" className="md:hidden" />
       </NavLink>
-      <NavLink to={`/favorites`}>
-        <ShoppingCart size="36" color="#80A896" />
+      <NavLink className="flex flex-row-reverse " to={`/login`}>
+        <p className="hidden md:block">Login</p>
+        <Heart size="36" color="#00582f" className="md:hidden" />
       </NavLink>
-      <NavLink to={`/profile`}>
-        <Profile size="36" color="#80A896" />
+      <NavLink className="lg:mr-auto" to={`/login`}>
+        <ShoppingCart size="36" color="#00582f" className="" />
       </NavLink>
-    </div>
+    </>
   );
 }
