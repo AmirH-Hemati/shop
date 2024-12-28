@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 
 function FilterButtons() {
   const [searchParams, setSearchParams] = useSearchParams();
-  const [filter, setFilter] = useState("all");
+  const [filter, setFilter] = useState("All");
   useEffect(() => {
     searchParams.set("filter", filter);
     setSearchParams(searchParams);

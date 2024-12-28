@@ -19,7 +19,7 @@ function App() {
           <FilterContextProvider>
             <Routes>
               <Route element={<Layout />}>
-                <Route path="/" element={<Navigate to={`/products`} />} />
+                <Route path="/" element={<Products />} />
                 <Route path="products" element={<Products />} />
                 <Route path="product/:id" element={<Product />} />
                 <Route path="favorites" element={<Favorites />} />
