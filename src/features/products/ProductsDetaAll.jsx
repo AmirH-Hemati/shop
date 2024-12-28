@@ -16,6 +16,7 @@ function ProductsDetaAll() {
   // md:ml-56
   const [searchParams] = useSearchParams();
   const filter = searchParams.get("filter");
+  console.log(filter)
   const filterProduct =
     filter !== "All"
       ? products?.filter((product) => {

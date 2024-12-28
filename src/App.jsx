@@ -20,9 +20,9 @@ function App() {
             <Routes>
               <Route element={<Layout />}>
                 <Route path="/" element={<Products />} />
-                <Route path="products" element={<Products />} />
-                <Route path="product/:id" element={<Product />} />
-                <Route path="favorites" element={<Favorites />} />
+                <Route path="/products" element={<Products />} />
+                <Route path="/product/:id" element={<Product />} />
+                <Route path="/favorites" element={<Favorites />} />
                 <Route path="*" element={<PageNotFound />} />
               </Route>
             </Routes>
