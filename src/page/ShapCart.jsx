@@ -24,10 +24,10 @@ function ShapCart() {
   if (isLoading) return <div>isloading</div>;
 
   return (
-    <div className="h-full md:px-6 px-2 py-2 font-montserrat pb-16 md:pb-0 overflow-auto">
+    <div className="h-full md:px-6 px-2 py-2 font-montserrat pb-20 md:pb-0 md:overflow-hidden">
       <h1 className="text-lg md:text-2xl font-semibold my-4">Shop Cart</h1>
-      <div className="flex w-full flex-col md:flex-row gap-2">
-        <div className="kir bg-white shadow-md flex flex-col justify-between w-full md:w-1/2  gap-4 items-center overflow-auto max-h-96">
+      <div className="flex w-full h-full flex-col md:flex-row gap-2 ">
+        <div className="bg-white shadow-md flex flex-col justify-between w-full md:w-1/2 h-[60%] md:h-2/3  gap-4 items-center overflow-auto  ">
           {data?.map((product) => (
             <div
               key={product?.id}
@@ -40,7 +40,7 @@ function ShapCart() {
                   className=" aspect-square w-full rounded-2xl object-cover"
                 />
               </div>
-              <div className="content items-center w-3/4 md:w-4/5 p-1 flex justify-between text-base md:text-lg">
+              <div className=" items-center w-3/4 md:w-4/5 p-1 flex justify-between text-base md:text-lg">
                 <div>
                   <p className="  font-semibold md:text-lg text-base">
                     {product?.title}
@@ -75,7 +75,7 @@ function ShapCart() {
             </div>
           ))}
         </div>
-        <div className="bg-white md:w-1/2  w-full px-4 py-1 shadow-md flex flex-col justify-evenly">
+        <div className="bg-white md:w-1/2 md:h-1/3 h-[30%]   w-full px-4 py-1 shadow-md md:mt-20 flex flex-col justify-evenly ">
           <h1 className="text-lg md:text-xl font-semibold">Shop Cart</h1>
           <p>Total Price : 55151</p>
           <p>Total Quantity : 10</p>
