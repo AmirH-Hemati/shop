@@ -33,7 +33,7 @@ function ProductsDetaAll({ search }) {
         )
       : filterProduct;
   return (
-    <ul className="p-2 grid w-full h-full items-start bg-[#FBFBFB] grid-cols-2  md:grid-cols-4  gap-4   overflow-auto">
+    <ul className="p-2 grid w-full h-full items-start bg-[#FBFBFB] grid-cols-2  md:grid-cols-4  gap-4  pb-20 md:pb-0 overflow-auto">
       {searchProduct?.map((product) => (
         <Product product={product} key={product.id} />
       ))}

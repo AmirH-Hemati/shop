@@ -14,7 +14,7 @@ function ShopContextProvider({ children }) {
       }
     });
   }
-  console.log(addCart);
+
   function handelDecreaseProduct(id) {
     setAddCart((products) => {
       if (products.find((product) => product.id === id)?.qty == 1) {
@@ -32,7 +32,9 @@ function ShopContextProvider({ children }) {
   function getAllQty() {
     return addCart?.reduce((acc, pro) => acc + pro?.qty, 0);
   }
-  console.log(getAllQty());
+  function getProduct(id) {
+    return addCart.find((product) => product.id === id);
+  }
   return (
     <shopContext.Provider
       value={{
@@ -40,6 +42,8 @@ function ShopContextProvider({ children }) {
         handelDecreaseProduct,
         getProductQty,
         getAllQty,
+        getProduct,
+        addCart,
       }}
     >
       {children}

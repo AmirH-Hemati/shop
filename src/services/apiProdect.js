@@ -15,3 +15,8 @@ export async function getProduct(id) {
   const { data } = await axios.get("https://api.sampleapis.com/coffee/hot");
   return data.find((item) => item.id == id);
 }
+export async function getProductswithIds(ids) {
+  const { data } = await axios.get("https://api.sampleapis.com/coffee/hot");
+
+  return data.filter((item) => ids?.includes(item.id));
+}

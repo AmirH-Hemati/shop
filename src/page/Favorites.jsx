@@ -5,21 +5,20 @@ import { Link } from "react-router-dom";
 
 function Favorites() {
   const { favorite } = useFavorite();
-  console.log(favorite.id);
-  if (favorite.length < 1)
+  if (favorite?.length < 1)
     return (
-      <div className="h-full flex  justify-center items-center font-montserrat text-base md:text-xl font-semibold text-black">
+      <div className="h-full flex  justify-center items-center font-montserrat text-base md:text-xl font-semibold text-black ">
         <p className="flex flex-col justify-center">
           <span>There are no favorite products.</span>
           <span className="text-gray-500 text-sm md:text-base">
-            Please add some products.{" "}
+            Please add some favorite products.{" "}
           </span>
         </p>
       </div>
     );
   return (
-    <div className="h-full md:px-6 px-1 py-2 font-montserrat bg-[#FBFBFB]">
-      <h1 className="text-2xl font-semibold">Favorite</h1>
+    <div className="h-full md:px-6 px-1 py-2 font-montserrat bg-[#FBFBFB] pb-20 md:pb-0 overflow-auto">
+      <h1 className="text-lg md:text-2xl font-semibold my-4">Favorite</h1>
       <div className="flex flex-wrap justify-between w-full gap-4">
         {favorite?.map((product) => (
           <Link

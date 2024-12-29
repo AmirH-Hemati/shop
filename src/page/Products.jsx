@@ -1,14 +1,11 @@
-import { Firstline } from "iconsax-react";
-import FilterProducts from "../features/products/FilterProducts";
 import ProductsDetaAll from "../features/products/ProductsDetaAll";
 import { useState } from "react";
-import HeaderMenuMobile from "../ui/HeaderMenuMobile";
-import FilterButton from "../ui/FilterButton";
+
 import FilterButtons from "../ui/FilterButtons";
 import Search from "../ui/Search";
 
 function Products() {
-  const [isOpenMenu, setIsOpenMenu] = useState(false);
+
   const [search, setSearch] = useState("");
 
   return (
