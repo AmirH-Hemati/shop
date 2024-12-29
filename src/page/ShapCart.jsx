@@ -27,7 +27,7 @@ function ShapCart() {
     <div className="h-full md:px-6 px-2 py-2 font-montserrat pb-20 md:pb-0 md:overflow-hidden">
       <h1 className="text-lg md:text-2xl font-semibold my-4">Shop Cart</h1>
       <div className="flex w-full h-full flex-col md:flex-row gap-2 ">
-        <div className="bg-white shadow-md flex flex-col justify-between w-full md:w-1/2 h-[60%] md:h-2/3  gap-4 items-center overflow-auto  ">
+        <div className="bg-white  flex flex-col justify-between w-full md:w-1/2 h-[60%] md:h-2/3  gap-4 items-center overflow-auto  ">
           {data?.map((product) => (
             <div
               key={product?.id}
