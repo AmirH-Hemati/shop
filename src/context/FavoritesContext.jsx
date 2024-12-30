@@ -1,8 +1,9 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
+import { useLocalStorage } from "../utils/useLocalStorage";
 
 const favoriteContext = createContext();
 function FavoriteProvider({ children }) {
-  const [favorite, setFavorite] = useState([]);
+  const [favorite, setFavorite] = useLocalStorage("favorites", []);
   function addFavorite(newItem) {
     setFavorite((favorite) =>
       favorite.find((fa) => fa.id == newItem.id)

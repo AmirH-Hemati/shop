@@ -1,8 +1,9 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
+import { useLocalStorage } from "../utils/useLocalStorage";
 
 const shopContext = createContext();
 function ShopContextProvider({ children }) {
-  const [addCart, setAddCart] = useState([]);
+  const [addCart, setAddCart] = useLocalStorage("shopCart", []);
   function handelIncreaseProduct(id) {
     setAddCart((products) => {
       if (products.find((item) => item.id == id)) {
