@@ -7,10 +7,13 @@ function Favorites() {
   const { favorite } = useFavorite();
   if (favorite?.length < 1)
     return (
-      <div className="h-full flex  justify-center items-center font-montserrat text-base md:text-xl font-semibold text-black ">
+      <div
+        style={{ backgroundImage: `url("public/background.png")` }}
+        className="bg-no-repeat   bg-cover bg-center h-full flex  justify-center items-center font-montserrat text-lg md:text-2xl text-white "
+      >
         <p className="flex flex-col justify-center">
           <span>There are no favorite products.</span>
-          <span className="text-gray-500 text-sm md:text-base">
+          <span className="text-gray-100 text-base md:text-lg">
             Please add some favorite products.{" "}
           </span>
         </p>

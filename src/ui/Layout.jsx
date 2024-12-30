@@ -3,7 +3,7 @@ import Header from "./Header";
 
 function Layout() {
   return (
-    <div className="h-screen flex flex-col gap-5">
+    <div className="h-screen flex flex-col ">
       <Header />
 
       <main className="flex-1  overflow-auto">

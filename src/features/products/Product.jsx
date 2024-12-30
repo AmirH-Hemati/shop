@@ -1,19 +1,17 @@
-import { Add, Back, Heart, Minus, Star1, Trash } from "iconsax-react";
+import { Add, Back, Minus, Star1, Trash } from "iconsax-react";
 import { useAddToCart } from "../../context/shopContext";
 import { useGetProduct } from "./useGetProduct";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useFavorite } from "../../context/FavoritesContext";
 import AddToFavorite from "../../ui/AddToFavorite";
+import Loading from "../../ui/Loading";
 
 function Product() {
-  const { product } = useGetProduct();
-  const [cupSize, setCupSize] = useState("small");
-  const [suger, setSuger] = useState("not Sugger");
+  const { product, isLoading } = useGetProduct();
   const { handelIncreaseProduct, getProductQty, handelDecreaseProduct } =
     useAddToCart();
   const navigate = useNavigate();
-
+  if (isLoading) return <Loading />;
   return (
     <div className="overflow-hidden w-full  flex flex-col md:flex-row h-full md:gap-2 md:px-2 bg-[#FBFBFB]  items-center font-montserrat">
       <div className=" relative w-full md:w-1/2   z-0 shadow-md md:px-6 md:py-2 bg-none md:bg-white md:rounded-xl">

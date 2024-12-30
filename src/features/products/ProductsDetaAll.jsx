@@ -1,12 +1,12 @@
 import { Link, useSearchParams } from "react-router-dom";
 import { useGetProducts } from "./useGetProducts";
-
-import { Add, Heart } from "iconsax-react";
-import { useGetFilter } from "./useGetFilter";
+import { Add } from "iconsax-react";
 import AddToFavorite from "../../ui/AddToFavorite";
+import Loading from "../../ui/Loading";
 
 function ProductsDetaAll({ search }) {
-  const { products } = useGetProducts();
+  const { products, isLoading } = useGetProducts();
+  const [searchParams] = useSearchParams();
   // const { colors, categories, size } = useGetFilter();
   // const filterProducts = products?.filter((product) => {
   //   const filterCategories =
@@ -15,7 +15,7 @@ function ProductsDetaAll({ search }) {
   //   return filterColor && filterCategories;
   // });
   // md:ml-56
-  const [searchParams] = useSearchParams();
+  if (isLoading) return <Loading />;
 
   const filter = searchParams.get("filter");
 
@@ -33,7 +33,7 @@ function ProductsDetaAll({ search }) {
         )
       : filterProduct;
   return (
-    <ul className="p-2 grid w-full h-full items-start bg-[#FBFBFB] grid-cols-2  md:grid-cols-4  gap-4  pb-20 md:pb-0 overflow-auto">
+    <ul className="p-2 grid w-full h-full items-start bg-[#FBFBFB] grid-cols-2  md:grid-cols-4  gap-4  pb-20 md:pb-0">
       {searchProduct?.map((product) => (
         <Product product={product} key={product.id} />
       ))}

@@ -4,7 +4,7 @@ import { useAddToCart } from "../context/shopContext";
 
 function Header() {
   return (
-    <div className="font-montserrat font-semibold h-16 md:relative w-full fixed bottom-0 left-0 bg-white rounded-t-xl shadow-lg px-4 flex  gap-6 lg:flex-row-reverse justify-evenly  items-center">
+    <div className="font-montserrat font-semibold h-16 md:relative w-full fixed bottom-0 left-0 bg-white rounded-t-xl shadow-md px-4 flex  gap-6 lg:flex-row-reverse justify-evenly  items-center">
       <Test />
     </div>
   );

@@ -5,17 +5,21 @@ import { useCartProducts } from "../features/shopingCart/useCartProducts";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowDown2, ArrowUp2, Trash } from "iconsax-react";
+import Loading from "../ui/Loading";
 
 function ShapCart() {
   const { addCart, getProduct } = useAddToCart();
   const { data, isLoading } = useCartProducts();
-
+  if (isLoading) return <Loading />;
   if (addCart?.length < 1)
     return (
-      <div className="h-full flex  justify-center items-center font-montserrat text-base md:text-xl font-semibold text-black">
+      <div
+        style={{ backgroundImage: `url("public/background.png")` }}
+        className="bg-no-repeat   bg-cover bg-center h-full flex  justify-center items-center font-montserrat text-lg md:text-2xl text-white "
+      >
         <p className="flex flex-col justify-center">
           <span>There are no products.</span>
-          <span className="text-gray-500 text-sm md:text-base">
+          <span className="text-gray-100 text-base md:text-lg">
             Please add some products.
           </span>
         </p>
