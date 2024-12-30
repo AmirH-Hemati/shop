@@ -1,7 +1,7 @@
 function Login() {
   return (
     <div className="font-montserrat bg-[#FBFBFB] w-full h-full flex flex-col  justify-center items-center p-4">
-      <form className="flex flex-col gap-2 bg-white shadow-md  rounded-md p-4 justify-evenly w-full md:w-72 aspect-square">
+      <form className="flex flex-col gap-2 bg-white shadow-md  rounded-md p-4 justify-evenly w-full md:w-1/3 aspect-square">
         <input
           type="text"
           placeholder="Username"
