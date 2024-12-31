@@ -24,14 +24,14 @@ function ShapCart() {
     );
 
   return (
-    <div className="h-full md:px-6 px-2 py-2 font-montserrat pb-20 md:pb-0 md:overflow-hidden">
-      <h1 className="text-lg md:text-2xl font-semibold my-4">Shop Cart</h1>
-      <div className="flex w-full h-full flex-col  gap-2 ">
-        <div className="bg-white  flex flex-col justify-between w-full md:w-1/2 h-[60%] md:h-2/3  gap-4 items-center overflow-auto  ">
+    <div className="h-full  px-6 py-2 font-montserrat   overflow-hidden bg-[#f5eeee91]">
+      <h1 className="text-lg md:text-2xl font-semibold my-1">Shop Cart</h1>
+      <div className="flex w-full h-full flex-col   items-center justify-start gap-5 ">
+        <div className="bg-[#f5eeee91] rounded-md p-2 flex flex-col w-full md:w-4/5 md:max-h-[60%] max-h-[50%]  gap-2 items-center overflow-auto  ">
           {products?.map((product) => (
             <div
               key={product?.id}
-              className=" bg-white p-1 w-full rounded-xl text-sm md:text-base justify-center  shadow-md flex text-black"
+              className="  bg-white p-2 w-full rounded-lg text-sm md:text-base justify-center  shadow-md flex text-black"
             >
               <div className="img md:w-1/5 w-1/4  ">
                 <img
@@ -78,11 +78,11 @@ function ShapCart() {
             </div>
           ))}
         </div>
-        <div className="bg-white md:w-1/2 md:h-1/3 h-[30%]   w-full px-4 py-1 shadow-md md:mt-20 flex flex-col justify-evenly ">
+        <div className="bg-[#00512C] md:w-4/5  max-h-[30%] gap-1 rounded-md  w-full p-2 shadow-md  flex flex-col justify-evenly ">
           <h1 className="text-lg md:text-xl font-semibold">Shop Cart</h1>
           <p>Total Price : 55151</p>
           <p>Total Quantity : 10</p>
-          <button className="bg-[#00512C] w-full md:w-1/2 md:self-end border-none text-white p-2 rounded-md align-middle text-sm font-semibold">
+          <button className="bg-gray-100 text-[#00512C] w-full md:w-1/3 md:self-end border-none  p-2 rounded-md align-middle text-sm font-semibold">
             Payment
           </button>
         </div>
