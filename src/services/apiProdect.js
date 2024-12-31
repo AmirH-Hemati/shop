@@ -17,6 +17,5 @@ export async function getProduct(id) {
 }
 export async function getProductswithIds(ids) {
   const { data } = await axios.get("https://api.sampleapis.com/coffee/hot");
-
   return data.filter((item) => ids?.includes(item.id));
 }

@@ -1,17 +1,14 @@
 import { useAddToCart } from "../context/shopContext";
-import AddToFavorite from "../ui/AddToFavorite";
-import { useGetProduct } from "../features/products/useGetProduct";
 import { useCartProducts } from "../features/shopingCart/useCartProducts";
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import { ArrowDown2, ArrowUp2, Trash } from "iconsax-react";
 import Loading from "../ui/Loading";
 
 function ShapCart() {
-  const { addCart, getProduct } = useAddToCart();
-  const { data, isLoading } = useCartProducts();
+  const { removeProduct, handelIncreaseProduct, handelDecreaseProduct } =
+    useAddToCart();
+  const { products, isLoading } = useCartProducts();
   if (isLoading) return <Loading />;
-  if (addCart?.length < 1)
+  if (products?.length < 1)
     return (
       <div
         style={{ backgroundImage: `url("/background.png")` }}
@@ -25,14 +22,13 @@ function ShapCart() {
         </p>
       </div>
     );
-  if (isLoading) return <div>isloading</div>;
 
   return (
     <div className="h-full md:px-6 px-2 py-2 font-montserrat pb-20 md:pb-0 md:overflow-hidden">
       <h1 className="text-lg md:text-2xl font-semibold my-4">Shop Cart</h1>
-      <div className="flex w-full h-full flex-col md:flex-row gap-2 ">
+      <div className="flex w-full h-full flex-col  gap-2 ">
         <div className="bg-white  flex flex-col justify-between w-full md:w-1/2 h-[60%] md:h-2/3  gap-4 items-center overflow-auto  ">
-          {data?.map((product) => (
+          {products?.map((product) => (
             <div
               key={product?.id}
               className=" bg-white p-1 w-full rounded-xl text-sm md:text-base justify-center  shadow-md flex text-black"
@@ -53,19 +49,21 @@ function ShapCart() {
                 </div>
 
                 <div className="flex  items-center gap-2 md:gap-3">
-                  <span className="text-base md:text-base">1</span>
+                  <span className="text-base md:text-base">{product?.qty}</span>
                   <div className="flex flex-col">
                     <ArrowUp2
                       size="24"
                       color="black"
                       variant="Bold"
                       className="cursor-pointer"
+                      onClick={() => handelIncreaseProduct(product?.id)}
                     />
                     <ArrowDown2
                       size="24"
                       color="black"
                       variant="Bold"
                       className="cursor-pointer"
+                      onClick={() => handelDecreaseProduct(product?.id)}
                     />
                   </div>
                   <Trash
@@ -73,6 +71,7 @@ function ShapCart() {
                     color="black"
                     variant="Bold"
                     className="cursor-pointer"
+                    onClick={() => removeProduct(product?.id)}
                   />
                 </div>
               </div>

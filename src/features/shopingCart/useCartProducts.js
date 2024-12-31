@@ -10,6 +10,18 @@ export function useCartProducts() {
     queryKey: ["cartProducts", cartsId],
     queryFn: () => getProductswithIds(cartsId),
   });
-  console.log(data);
-  return { data, isLoading };
+
+  const products = addCart?.map((cartItem) => {
+    const product = data?.find((item) => item?.id == cartItem?.id);
+    return product
+      ? {
+          ...cartItem,
+          title: product?.title,
+          image: product?.image,
+          total: cartItem.quantity * product?.price,
+        }
+      : { ...cartItem, error: "Product not found" };
+  });
+
+  return { products, isLoading };
 }

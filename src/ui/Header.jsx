@@ -20,10 +20,10 @@ function Test() {
     <>
       <NavLink
         to={`/`}
-        className="flex flex-row-reverse"
+        className="flex flex-row-reverse "
         onClick={() => setFirst("Home")}
       >
-        <p className="hidden md:block">Home</p>
+        <p className="hidden md:block text-black">Home</p>
         <Home2
           size="36"
           color="#00582f"
@@ -36,7 +36,7 @@ function Test() {
         to={`/favorites`}
         onClick={() => setFirst("Favorite")}
       >
-        <p className="hidden md:block">Favorite</p>
+        <p className="hidden md:block text-black">Favorite</p>
 
         <Heart
           size="36"
@@ -50,7 +50,7 @@ function Test() {
         to={`/login`}
         onClick={() => setFirst("Login")}
       >
-        <p className="hidden md:block ">Login</p>
+        <p className="hidden md:block  text-black">Login</p>
 
         <LoginCurve
           size="36"

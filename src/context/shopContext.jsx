@@ -36,6 +36,12 @@ function ShopContextProvider({ children }) {
   function getProduct(id) {
     return addCart.find((product) => product.id === id);
   }
+  console.log(addCart.filter((p) => p.id !== 4));
+  function removeProduct(id) {
+    console.log("kirrr");
+    setAddCart((prevCart) => prevCart.filter((item) => item.id !== id));
+  }
+
   return (
     <shopContext.Provider
       value={{
@@ -45,6 +51,7 @@ function ShopContextProvider({ children }) {
         getAllQty,
         getProduct,
         addCart,
+        removeProduct,
       }}
     >
       {children}
