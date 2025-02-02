@@ -38,7 +38,6 @@ function ShopContextProvider({ children }) {
   }
   console.log(addCart.filter((p) => p.id !== 4));
   function removeProduct(id) {
-    console.log("kirrr");
     setAddCart((prevCart) => prevCart.filter((item) => item.id !== id));
   }
 

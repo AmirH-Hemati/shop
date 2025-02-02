@@ -5,7 +5,7 @@ import Loading from "../ui/Loading";
 
 function ShapCart() {
   const { removeProduct, handelIncreaseProduct, handelDecreaseProduct } =
-    useAddToCart();
+    useAddT oCart();
   const { products, isLoading } = useCartProducts();
   if (isLoading) return <Loading />;
   if (products?.length < 1)
